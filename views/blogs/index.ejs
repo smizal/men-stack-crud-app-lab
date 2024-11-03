@@ -1,0 +1,21 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title><%= pageTitle %></title>
+  </head>
+  <body>
+    <%- include('../partials/nav') %>
+    <h1>All Posts</h1>
+    <% posts.forEach(post => { %>
+    <div class="post-border">
+      <h2 style="display: inline"><%= post.title %></h2>
+      (<% for (let i=0; i< post.rating; i++) { %>*<% } %> stars)<br /><br />
+      <%= post.body %><br /><br />
+      Publisher: <%= post.publisher %>
+    </div>
+    <% }); %>
+  </body>
+  <footer>Done by <a href="https://github.com/smizal">sjs29</a></footer>
+</html>

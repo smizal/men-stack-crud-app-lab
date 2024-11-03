@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title><%= pageTitle%></title>
+  </head>
+  <body>
+    <%- include('../partials/adminNav') %>
+    <h1><%= post.title %></h1>
+    <div class="post-border">
+      (<% for (let i=0; i< post.rating; i++) { %>*<% } %> stars)<br /><br />
+      <%= post.body %><br /><br />
+      Publisher: <%= post.publisher %>
+    </div>
+  </body>
+</html>

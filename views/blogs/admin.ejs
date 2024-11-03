@@ -1,0 +1,34 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title><%= pageTitle %></title>
+  </head>
+  <body>
+    <%- include('../partials/adminNav') %>
+    <h1>All Posts</h1>
+    <table class="main-posts">
+      <% posts.forEach(post => { %>
+      <tr>
+        <td class="title post-border">
+          <a href="/blogs/<%= post._id %>"> <%= post.title %></a>
+        </td>
+        <td class="publisher post-border"><%= post.publisher %></td>
+        <td class="published post-border"><%= post.isPublished?'A': 'NA' %></td>
+        <td class="controllers post-border">
+          <form action="/blogs/<%=post._id%>?_method=DELETE" method="POST">
+            <button class="control-btn post-border" type="submit">
+              Delete
+            </button>
+            <button class="control-btn post-border">
+              <a class="unset" href="/blogs/<%= post._id %>/edit">Edit</a>
+            </button>
+          </form>
+        </td>
+      </tr>
+      <% }); %>
+    </table>
+  </body>
+  <footer>Done by <a href="https://github.com/smizal">sjs29</a></footer>
+</html>
